@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style type="text/css">
+    table {
+      counter-reset: row-num -1;
+    }
+    table tr {
+      counter-increment: row-num;
+    }
+    table tr td:first-child::before {
+        content: counter(row-num);
+    }
+    </style>
+<h2 style="text-align:center"> Admin Pannel </h2>
+</br>
+<div>
+    <table border="1" colspan="2" width="100%">
+        <tr>
+          <th width="20%">S.No</td>
+          <th width="40%">File</td>
+          <th width="40%">Action</td> 
+        </tr>
+      {% for file in total_files %}
+        <tr>
+          <td width="20%"></td>
+          <td width="40%">{{file}}</td>
+          <td width="40%" align="center"><a  href=" /media/{{file}}"  >Download</a>
+            &ensp; &ensp; <a href="/open/{{file}}" >Open</a>
+            </td>
+        </tr>
+      {% endfor %}  
+     </table>
+    </div>
+
+{% endblock %}

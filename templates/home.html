@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> Admin Pannel </h2>
+</br>
+<h3 style="center"> Login </h3>
+</br>
+<form action="{% url 'login' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+    </br> </br>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+    </br> </br>
+        <button type="submit">Login</button>
+        
+      </div>   
+  
+   {% for message in messages %}
+    
+      <div class="alert alert-success">
+          <a class="close" href="#" data-dismiss="alert">×</a>
+             {{ message }}
+      </div>
+  
+  {% endfor %}
+  
+    
+  </form>
+ 
+{% endblock %}
